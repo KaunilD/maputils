@@ -32,7 +32,7 @@ def lines_intersect(p1, p2, p3, p4):
     return l_intersect, seg_intersect, intersection
 
 
-def extend_polygon(polygon, euc_dist):
+def expand_polygon(polygon, euc_dist):
     new_poly = []
     num_points = len(polygon)
     for j in range(num_points):
@@ -70,12 +70,12 @@ def main(polygon):
     else:
         polygon = json.load(open(args.json, 'r'))
         euc_dist = args.distance
-        extend_polygon(polygon, euc_dist)
+        expand_polygon(polygon, euc_dist)
 
 def driver():
     polygon = []
     euc_dist = 10
-    return extend_polygon(polygon, euc_dist)
+    return expand_polygon(polygon, euc_dist)
 
 if __name__ == '__main__':
     main()
